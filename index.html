@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Uthayanithi U — M.Sc. IT graduate transitioning from front-end development into data analytics, with experience building real-time operational dashboards and end-to-end analytics projects.">
+<meta name="theme-color" content="#0a0e17">
+<title>Uthayanithi U — Data Analytics · Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0a0e17; --panel:#101622; --panel2:#0d131e;
+  --line:rgba(235,242,255,.12); --line2:rgba(235,242,255,.07);
+  --text:#edf2f7; --muted:#9ca8ba; --soft:#cbd4df;
+  --cyan:#00e5ff; --gold:#f5ad22; --green:#72e0a4;
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Manrope",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"DM Mono","SFMono-Regular",Consolas,monospace;
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  background:var(--bg); color:var(--text); font:16px/1.7 var(--sans);
+  overflow-x:hidden;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:radial-gradient(circle at 75% 12%,rgba(0,229,255,.07),transparent 28%),
+             radial-gradient(circle at 15% 55%,rgba(245,173,34,.045),transparent 24%);
+}
+a{color:inherit}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+::selection{background:var(--cyan);color:#031018}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+section{padding:100px 0;border-top:1px solid var(--line2)}
+h2{font:800 clamp(32px,4vw,52px)/1.08 var(--serif);letter-spacing:-.025em}
+h3{font-family:var(--serif)}
+.lead{color:var(--muted);max-width:68ch;margin:14px 0 38px}
+.mono{font-family:var(--mono)}
+.muted{color:var(--muted)}
+.t{color:var(--soft)}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--cyan);border:1px solid rgba(0,229,255,.35);
+  padding:6px 11px;border-radius:999px;background:rgba(0,229,255,.055)
+}
+.kicker i{width:6px;height:6px;border-radius:50%;background:var(--cyan);display:block;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,14,23,.84);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line)
+}
+.nav-inner{height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:500 14px var(--mono);text-decoration:none;color:var(--cyan)}
+#navLinks{display:flex;align-items:center;gap:24px}
+#navLinks a{font:500 12px var(--mono);color:var(--muted);text-decoration:none}
+#navLinks a:hover{color:var(--cyan)}
+.menu{display:none;background:transparent;color:var(--text);border:1px solid var(--line);border-radius:6px;padding:7px 11px;cursor:pointer}
+
+.hero{padding:82px 0 56px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(360px,.75fr);gap:76px;align-items:center}
+h1{
+  font:800 clamp(52px,8.5vw,112px)/.88 var(--serif);
+  letter-spacing:-.055em;margin:22px 0 16px
+}
+.roleline{font:500 14px var(--mono);color:var(--gold);margin-bottom:20px}
+.hero h2{font:600 italic clamp(21px,2.5vw,30px)/1.32 var(--serif);max-width:25ch}
+.hero-copy{color:var(--muted);max-width:62ch;margin-top:18px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;min-height:46px;
+  padding:10px 17px;border:1px solid var(--cyan);border-radius:5px;
+  color:var(--cyan);font:500 12px var(--mono);text-decoration:none;transition:.2s
+}
+.btn.primary{background:var(--cyan);color:#041017}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary:hover{box-shadow:0 0 28px rgba(0,229,255,.2)}
+.terminal{
+  border:1px solid var(--line);background:rgba(16,22,34,.82);border-radius:12px;
+  overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,.2)
+}
+.term-top{display:flex;align-items:center;gap:7px;padding:12px 15px;border-bottom:1px solid var(--line)}
+.term-dot{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.term-file{margin-left:auto;color:var(--muted);font:12px var(--mono)}
+.term-body{padding:28px}
+.term-number{font:800 58px/.95 var(--serif);color:var(--cyan)}
+.term-number.gold{color:var(--gold)}
+.term-label{font:13px var(--mono);color:var(--muted);margin:7px 0 22px}
+.bars{height:72px;display:flex;align-items:flex-end;gap:5px;border-bottom:1px solid var(--line)}
+.bars i{flex:1;height:var(--h);background:var(--bar,var(--cyan));opacity:.48;border-radius:2px 2px 0 0}
+.term-flow{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font:11px var(--mono);color:var(--muted)}
+.term-flow span{color:var(--text)}
+.stats-strip{border-block:1px solid var(--line);background:rgba(255,255,255,.018)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{
+  min-height:86px;padding:17px 18px;border-right:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:center
+}
+.stat:last-child{border-right:0}
+.stat b{font:600 13px var(--mono);color:var(--text)}
+.stat span{font:12px var(--mono);color:var(--muted);margin-top:3px}
+
+.about-grid{display:grid;grid-template-columns:290px minmax(0,1fr);gap:72px;align-items:start}
+.profile-card{position:sticky;top:94px}
+.photo{
+  width:190px;height:220px;border:1px solid var(--line);border-radius:9px;
+  overflow:hidden;position:relative;display:grid;place-items:center;
+  background:linear-gradient(145deg,rgba(0,229,255,.07),rgba(255,255,255,.025));
+  color:var(--cyan);font:800 64px var(--serif)
+}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.chip{font:12px var(--mono);color:var(--muted);border:1px solid var(--line);padding:5px 9px;border-radius:999px}
+.about-copy h2{max-width:16ch}
+.about-copy p{color:var(--soft);max-width:72ch;margin-top:20px}
+.about-facts{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:32px
+}
+.fact{border:1px solid var(--line);background:var(--panel);padding:17px;border-radius:8px}
+.fact b{display:block;font:700 24px var(--serif);color:var(--cyan)}
+.fact span{display:block;font:11px var(--mono);color:var(--muted);margin-top:2px}
+
+.journey{margin-top:62px;border-top:1px solid var(--line);padding-top:34px}
+.journey-title{font:500 12px var(--mono);color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:26px}
+.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative}
+.timeline:before{content:"";position:absolute;top:10px;left:0;right:0;height:1px;background:var(--line)}
+.time-item{position:relative;padding:0 15px 0 0}
+.time-dot{position:relative;z-index:1;width:20px;height:20px;border-radius:50%;border:1px solid var(--cyan);background:var(--bg);margin-bottom:16px}
+.time-item.now .time-dot{background:var(--gold);border-color:var(--gold);box-shadow:0 0 15px rgba(245,173,34,.25)}
+.time-year{font:11px var(--mono);color:var(--muted)}
+.time-item b{display:block;font:600 17px/1.25 var(--serif);margin:5px 0}
+.time-item span{display:block;font-size:12px;color:var(--muted)}
+
+.exp-card{
+  display:grid;grid-template-columns:minmax(230px,.75fr) minmax(0,1.25fr);
+  gap:48px;padding:34px;border:1px solid var(--line);border-radius:12px;background:var(--panel)
+}
+.exp-title{font:800 30px/1.1 var(--serif)}
+.exp-meta{font:12px var(--mono);color:var(--cyan);margin:9px 0 18px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font:11px var(--mono);color:var(--muted);border:1px solid var(--line);padding:4px 8px;border-radius:999px}
+.exp-list{list-style:none;display:grid;gap:13px}
+.exp-list li{position:relative;padding-left:23px;color:var(--soft)}
+.exp-list li:before{content:"";position:absolute;left:0;top:.72em;width:7px;height:7px;border-radius:50%;background:var(--cyan)}
+
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.project{
+  text-align:left;color:inherit;background:var(--panel);border:1px solid var(--line);
+  border-radius:12px;padding:25px;cursor:pointer;transition:.22s;
+  min-height:100%;display:flex;flex-direction:column
+}
+.project:hover{border-color:var(--project-color);transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,.16)}
+/* .project:nth-child(3){grid-column:1 / -1} */
+.project-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
+.project-index{font:12px var(--mono);color:var(--muted)}
+.project-stat{font:800 42px/1 var(--serif);color:var(--project-color)}
+.project-stat-label{font:10px var(--mono);color:var(--muted);margin-top:5px}
+.project-visual{
+  height:130px;margin:22px 0 22px;padding:13px;border:1px solid var(--line);
+  border-radius:7px;background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.012))
+}
+.v-top{display:flex;justify-content:space-between;font:10px var(--mono);color:var(--muted);text-transform:uppercase}
+.v-top b{color:var(--project-color);font-weight:500}
+.v-grid{height:85px;display:grid;grid-template-columns:1.45fr .55fr;gap:9px;margin-top:10px}
+.v-chart{display:flex;align-items:flex-end;gap:4px;padding:7px 7px 0;border:1px solid var(--line);border-radius:4px}
+.v-chart i{flex:1;height:var(--h);background:var(--project-color);opacity:.5;border-radius:2px 2px 0 0}
+.v-side{display:grid;gap:5px}
+.v-side span{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:4px;padding:5px 6px;font:9px var(--mono);color:var(--muted)}
+.v-side b{font-weight:500;color:var(--text)}
+.project-badge{font:10px var(--mono);color:var(--gold);border:1px solid rgba(245,173,34,.45);padding:4px 8px;border-radius:999px}
+.project h3{font:700 24px/1.2 var(--serif);margin:10px 0 9px}
+.project-summary{color:var(--muted);font-size:14px;max-width:65ch}
+.project-footer{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:auto;padding-top:20px}
+.project-tech{display:flex;flex-wrap:wrap;gap:6px}
+.project-tech span{font:10px var(--mono);color:var(--muted);border:1px solid var(--line);padding:4px 7px;border-radius:999px}
+.open-case{font:11px var(--mono);color:var(--project-color);white-space:nowrap}
+
+dialog{
+  width:min(900px,calc(100% - 28px));max-height:90vh;margin:auto;padding:0;
+  color:var(--text);background:#0d1421;border:1px solid var(--project-color,var(--cyan));
+  border-radius:12px;overflow:auto
+}
+dialog::backdrop{background:rgba(1,5,12,.78);backdrop-filter:blur(5px)}
+.dialog-head{
+  position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;gap:20px;
+  padding:22px 28px 16px;background:#0d1421;border-bottom:1px solid var(--line)
+}
+.dialog-head h3{font:800 30px/1.15 var(--serif)}
+.dialog-body{padding:4px 28px 32px}
+.close{
+  width:38px;height:38px;flex:none;border:1px solid var(--line);border-radius:50%;
+  background:transparent;color:var(--text);cursor:pointer
+}
+.modal-section{margin-top:27px}
+.modal-section h4{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--project-color);margin-bottom:9px}
+.modal-section p{color:var(--soft)}
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.flow span{font:11px var(--mono);border:1px solid var(--project-color);padding:7px 9px;border-radius:4px;background:rgba(255,255,255,.025)}
+.flow i{font:12px var(--mono);font-style:normal;color:var(--muted)}
+.findings{padding-left:20px;color:var(--soft)}
+.findings li{margin:7px 0}
+.modal-tags{display:flex;flex-wrap:wrap;gap:7px}
+.modal-tags span{font:11px var(--mono);padding:5px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+.page-tabs{display:flex;flex-wrap:wrap;gap:7px}
+.page-tabs button{border:1px solid var(--line);background:transparent;color:var(--muted);padding:7px 10px;border-radius:4px;cursor:pointer;font:11px var(--mono)}
+.page-tabs button[aria-pressed="true"]{border-color:var(--project-color);color:var(--project-color)}
+.page-note{margin-top:10px;color:var(--soft);font-size:14px}
+
+.workflow{display:grid;grid-template-columns:repeat(5,1fr);border-top:2px solid var(--cyan)}
+.workflow-step{padding:21px 20px 0 0}
+.workflow-step:not(:last-child){border-right:1px solid var(--line);margin-right:20px}
+.workflow-step small{font:11px var(--mono);color:var(--cyan)}
+.workflow-step b{display:block;font:600 20px var(--serif);margin:5px 0}
+.workflow-step span{display:block;color:var(--muted);font-size:13px;padding-right:15px}
+
+.skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.skill-group{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--panel)}
+.skill-group h3{font:600 20px var(--serif);margin-bottom:13px}
+.skill-pills{display:flex;flex-wrap:wrap;gap:8px}
+.skill-pill{
+  border:1px solid var(--line);background:transparent;color:var(--soft);
+  border-radius:999px;padding:8px 11px;font:11px var(--mono);cursor:pointer
+}
+.skill-pill:hover,.skill-pill[aria-pressed="true"]{border-color:var(--cyan);color:var(--cyan)}
+.skill-note{
+  min-height:66px;margin-top:17px;border:1px dashed var(--line);
+  padding:15px 18px;border-radius:8px;color:var(--muted);font:12px/1.7 var(--mono)
+}
+.skill-note b{color:var(--cyan);font-weight:500}
+.strength-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:35px}
+.strength{padding:19px;border:1px solid var(--line);background:var(--panel);border-radius:8px}
+.strength b{display:block;font:600 18px var(--serif);border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:7px}
+.strength span{color:var(--muted);font-size:13px}
+
+.lead-card{display:grid;grid-template-columns:1.1fr .9fr;gap:45px;padding:34px;border:1px solid rgba(245,173,34,.36);background:rgba(245,173,34,.045);border-radius:12px}
+.lead-card h3{font:800 31px/1.1 var(--serif)}
+.lead-meta{font:12px var(--mono);color:var(--gold);margin:9px 0 17px}
+.lead-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.lead-stat b{display:block;font:800 31px/1 var(--serif);color:var(--gold)}
+.lead-stat span{font:11px var(--mono);color:var(--muted)}
+.lead-details{display:grid;gap:9px;margin-top:18px;padding-left:20px;color:var(--soft)}
+.lead-details li{padding-left:2px}
+
+.cred-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}
+.cred-col h3{font:600 22px var(--serif);margin-bottom:14px}
+.cred-item{
+  border:1px solid var(--line);background:var(--panel);border-radius:8px;
+  padding:15px 17px;margin-bottom:9px;min-height:72px
+}
+.cred-item b{display:block;font:600 16px/1.3 var(--serif);padding-right:70px}
+.cred-item span{display:block;color:var(--muted);font:11px var(--mono);margin-top:3px}
+.cred-year{float:right;color:var(--cyan)!important;margin:0!important}
+.achievement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:38px}
+.achievement{border:1px solid var(--line);padding:18px;border-radius:8px;background:var(--panel)}
+.achievement small{font:11px var(--mono);color:var(--gold);text-transform:uppercase}
+.achievement b{display:block;font:600 18px/1.3 var(--serif);margin-top:4px}
+
+footer{padding:100px 0 38px;border-top:1px solid var(--line)}
+.footer-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:60px;align-items:end}
+footer h2{font-size:clamp(40px,6vw,72px);max-width:11ch}
+.footer-sub{color:var(--muted);font:12px var(--mono);margin-top:15px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.contact{
+  min-height:75px;padding:15px 17px;border:1px solid var(--line);background:var(--panel);
+  border-radius:7px;text-decoration:none;display:block
+}
+.contact:hover{border-color:var(--cyan)}
+.contact small{display:block;color:var(--muted);font:10px var(--mono);margin-bottom:3px}
+.contact span{font:12px var(--mono);word-break:break-word}
+.footer-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:55px;padding-top:20px;border-top:1px solid var(--line);font:10px var(--mono);color:var(--muted)}
+
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .terminal{max-width:700px}
+  .about-grid{grid-template-columns:230px 1fr;gap:42px}
+  .timeline{grid-template-columns:repeat(3,1fr);gap:28px 0}
+  .timeline:before{top:10px}
+  .exp-card,.lead-card{grid-template-columns:1fr}
+  .workflow{grid-template-columns:repeat(2,1fr);border-top:0;border-left:2px solid var(--cyan);padding-left:18px}
+  .workflow-step{padding:0 0 24px}
+  .workflow-step:not(:last-child){border-right:0;margin-right:0}
+}
+@media(max-width:760px){
+  .wrap{width:min(var(--max),calc(100% - 28px))}
+  section{padding:70px 0}
+  .menu{display:block}
+  #navLinks{
+    display:none;position:absolute;left:0;right:0;top:68px;
+    flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 18px;
+    background:#0a0e17;border-bottom:1px solid var(--line)
+  }
+  #navLinks.open{display:flex}
+  #navLinks a{padding:11px 0}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(3),.stat:nth-child(4){border-top:1px solid var(--line)}
+  .about-grid{grid-template-columns:1fr}
+  .profile-card{position:static}
+  .photo{width:150px;height:175px}
+  .about-facts{grid-template-columns:1fr 1fr}
+  .timeline{grid-template-columns:1fr;border-left:1px solid var(--line);padding-left:20px}
+  .timeline:before{top:0;bottom:0;left:-1px;width:1px;height:auto}
+  .time-item{padding:0 0 24px}
+  .time-dot{margin-left:-31px}
+  .project-grid{grid-template-columns:1fr}
+  .project:nth-child(3){grid-column:auto}
+  .project{min-height:0}
+  .skill-groups,.cred-grid{grid-template-columns:1fr}
+  .strength-grid,.achievement-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:35px}
+}
+@media(max-width:500px){
+  h1{font-size:52px}
+  .hero{padding-top:60px}
+  .term-body{padding:20px}
+  .term-number{font-size:47px}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:0}
+  .about-facts{grid-template-columns:1fr}
+  .actions .btn{width:100%}
+  .project-visual{height:112px}
+  .v-grid{height:70px}
+  .lead-stats,.contact-grid{grid-template-columns:1fr}
+  .dialog-head,.dialog-body{padding-left:19px;padding-right:19px}
+  .dialog-head h3{font-size:25px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top">uthaya7.dev</a>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <div id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Projects</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#skills">Skills</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker"><i></i> OPEN TO DATA &amp; TECHNOLOGY ROLES</span>
+      <h1>UTHAYANITHI</h1>
+      <div class="roleline">M.Sc. IT · Data Analytics · Former Front-End Developer </div>
+      <h2>Turning operational data into useful insights through dashboards, analysis and digital experiences.</h2>
+      <p class="hero-copy">
+        Detail-oriented analyst transitioning from front-end development to data analytics,
+        with professional experience building real-time monitoring dashboards for renewable-energy
+        systems and hands-on portfolio work across SQL, Python, Excel and Power BI.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#work">[ Explore Projects ]</a>
+        <a class="btn" href="Uthayanithi_Resume.pdf" download>[ Download Resume ]</a>
+        <a class="btn" href="#contact">[ Contact Me ]</a>
+      </div>
+    </div>
+
+    <div class="terminal" aria-label="Portfolio project scale">
+      <div class="term-top">
+        <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+        <span class="term-file" id="termFile">supply_chain.sql</span>
+      </div>
+      <div class="term-body">
+        <div class="term-number" id="termNumber">180K+</div>
+        <div class="term-label" id="termLabel">order items analyzed</div>
+        <div class="bars" id="bars" aria-hidden="true"></div>
+        <div class="term-flow" id="termFlow"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="stats-strip">
+  <div class="wrap stats">
+    <div class="stat"><b>1+ year</b><span>professional dashboard experience</span></div>
+    <div class="stat"><b>4 projects</b><span>end-to-end analytics portfolio</span></div>
+    <div class="stat"><b>16 seasons</b><span>CSK IPL data modeled</span></div>
+    <div class="stat"><b>180K+ / 350K+</b><span>order items / transactions analyzed</span></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <aside class="profile-card">
+        <div class="photo">
+          <span aria-hidden="true">U</span>
+          <img src="Uthayanithi_Photo.png" alt="Portrait of Uthayanithi" onerror="this.remove()">
+        </div>
+        <div class="chips">
+          <div class="chips">
+            <span class="chip">M.Sc. IT</span>
+            <span class="chip">Data Analytics</span>
+            <span class="chip">ETL</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">Python</span>
+            <span class="chip">Data Visualization</span>
+            <span class="chip">Problem Solving</span>
+            <span class="chip">Attention to Detail</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="about-copy">
+        <h2>From building interfaces to understanding the data behind them.</h2>
+        <p>
+          I am an M.Sc. Information Technology graduate transitioning from front-end development
+          to data analytics. My professional experience taught me how operational data reaches
+          a user; my portfolio work focuses on what that data can explain.
+        </p>
+        <p>
+          At MD Infotech, I built and maintained real-time monitoring dashboards for wind and solar
+          energy systems. I worked with KPIs such as energy output, machine status and performance
+          trends, validated dashboard values against live field readings during onsite testing,
+          redesigned legacy layouts, and collaborated with backend and remote teams to resolve
+          data discrepancies.
+        </p>
+        <p>
+          I then applied those habits to self-directed analytics projects: collecting and cleaning
+          data, designing warehouses and star schemas, writing SQL, building Python ETL workflows,
+          creating DAX measures, and presenting findings through Power BI dashboards.
+        </p>
+        <p>
+          Beyond technical work, I served as Department Symposium Vice President at Bishop Heber
+          College, coordinating activities involving 180+ students, participating colleges,
+          faculty and support teams. That experience strengthened my communication, coordination,
+          decision-making and ability to stay organized when many tasks move at once.
+        </p>
+
+        <div class="about-facts">
+          <div class="fact"><b>76.66%</b><span>M.Sc. IT</span></div>
+          <div class="fact"><b>76.30%</b><span>B.Sc. Computer Science</span></div>
+          <div class="fact"><b>180+</b><span>students coordinated</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey">
+      <div class="journey-title">My journey</div>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Professional experience</h2>
+    <p class="lead">
+      One year of professional front-end experience working with real-time operational monitoring
+      systems and renewable-energy data.
+    </p>
+
+    <div class="exp-card">
+      <div>
+        <div class="exp-title">Front-End Developer</div>
+        <div class="exp-meta">MD Infotech, Trichy · May 2024 – June 2025</div>
+        <div class="tags" id="experienceTags"></div>
+      </div>
+      <ul class="exp-list" id="experienceList"></ul>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Selected projects</h2>
+    <p class="lead">
+      Four self-directed portfolio projects built to demonstrate the full analytics workflow:
+      data collection or generation, cleaning, modeling, SQL/ETL, KPI development, visualization
+      and communicating findings.
+    </p>
+    <div class="project-grid" id="projectGrid"></div>
+  </div>
+</section>
+
+<dialog id="projectDialog" aria-labelledby="dialogTitle"></dialog>
+
+<section id="workflow">
+  <div class="wrap">
+    <h2>How I work</h2>
+    <p class="lead">
+      A practical workflow shaped by validating live operational data, building analytics projects,
+      testing dashboards and coordinating people and tasks.
+    </p>
+    <div class="workflow" id="workflowSteps"></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Technical skills</h2>
+    <p class="lead">
+      The stack below mirrors the capabilities documented in my resume. Select a skill to see how
+      it appears in my work.
+    </p>
+    <div class="skill-groups" id="skillGroups"></div>
+    <div class="skill-note" id="skillNote" aria-live="polite">Select a skill above.</div>
+
+    <div class="strength-grid">
+      <div class="strength"><b>Analytical thinking</b><span>Break raw operational or business data into measurable questions and KPIs.</span></div>
+      <div class="strength"><b>Attention to detail</b><span>Validate data, assumptions and dashboard values before communicating results.</span></div>
+      <div class="strength"><b>Cross-functional collaboration</b><span>Work with technical and non-technical stakeholders to clarify requirements and discrepancies.</span></div>
+      <div class="strength"><b>Communication</b><span>Present technical findings and dashboard information clearly to different audiences.</span></div>
+      <div class="strength"><b>Data integrity</b><span>Use cleaning, validation, profiling and integrity checks as part of the workflow.</span></div>
+      <div class="strength"><b>Continuous learning</b><span>Build projects and complete applied job simulations to expand practical skills.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="wrap">
+    <h2>Leadership &amp; coordination</h2>
+    <p class="lead">
+      My portfolio is technical, but my experience is not limited to a screen. I have also coordinated
+      people, logistics, communication and event execution.
+    </p>
+
+    <div class="lead-card">
+      <div>
+        <h3>Department Symposium Vice President</h3>
+        <div class="lead-meta">Bishop Heber College · 2023–2024</div>
+        <p class="t">
+          Coordinated department symposium activities involving 180+ students and multiple participating
+          colleges. The role required handling student requirements and queries, coordinating with event
+          teams, keeping activities organized, and responding to issues as they occurred.
+        </p>
+        <ul class="lead-details">
+          <li>Managed food and accommodation coordination for students, staff and support staff.</li>
+          <li>Coordinated multiple event activities and ensured results were properly handed over to judges.</li>
+          <li>Worked across students, faculty, participating colleges and support teams.</li>
+          <li>Recognized by the department with a certificate and shield for active contribution.</li>
+        </ul>
+      </div>
+      <div class="lead-stats">
+        <div class="lead-stat"><b>180+</b><span>students involved</span></div>
+        <div class="lead-stat"><b>Multi-team</b><span>students, colleges, faculty &amp; support</span></div>
+        <div class="lead-stat"><b>Logistics</b><span>food &amp; accommodation coordination</span></div>
+        <div class="lead-stat"><b>Recognition</b><span>certificate &amp; shield</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="wrap">
+    <h2>Education, certifications &amp; achievements</h2>
+    <p class="lead">Academic foundation, applied learning and documented achievements.</p>
+
+    <div class="cred-grid">
+      <div class="cred-col">
+        <h3>Education</h3>
+        <div id="education"></div>
+      </div>
+      <div class="cred-col">
+        <h3>Certifications &amp; job simulations</h3>
+        <div id="certifications"></div>
+      </div>
+    </div>
+
+    <div class="achievement-grid" id="achievements"></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Let's build something useful.</h2>
+        <p class="footer-sub">DATA · DASHBOARDS · TECHNOLOGY</p>
+      </div>
+      <div class="contact-grid">
+        <a class="contact" href="mailto:uthayanithii7@gmail.com">
+          <small>Email</small><span>uthayanithii7@gmail.com</span>
+        </a>
+        <a class="contact" href="tel:+918940264517">
+          <small>Phone</small><span>+91 8940264517</span>
+        </a>
+        <a class="contact" href="https://linkedin.com/in/uthaya7" target="_blank" rel="noopener">
+          <small>LinkedIn</small><span>linkedin.com/in/uthaya7</span>
+        </a>
+        <a class="contact" href="https://github.com/uthaya7" target="_blank" rel="noopener">
+          <small>GitHub</small><span>github.com/uthaya7</span>
+        </a>
+        <div class="contact"><small>Location</small><span>Tiruchirappalli, Tamil Nadu, India</span></div>
+        <a class="contact" href="Uthayanithi_Resume.pdf" download>
+          <small>Resume</small><span>Download PDF</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Uthayanithi U</span>
+      <span>Built with HTML · CSS · Vanilla JavaScript</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONTENT
+   Source of truth: Uthayanithi_Resume(5).pdf + documented
+   portfolio project details supplied in the conversation.
+   ============================================================ */
+
+const journey = [
+  ["2019–2022","B.Sc. Computer Science","Bishop Heber College · 76.30%"],
+  ["2022–2024","M.Sc. Information Technology","Bishop Heber College · 76.66%"],
+  ["2023–2024","Department Symposium Vice President","180+ students · event coordination"],
+  ["May 2024–Jun 2025","Front-End Developer","MD Infotech · real-time SCADA dashboards"],
+  ["2025–2026","Data analytics portfolio","SQL · Python · Power BI · Excel · ETL"],
+  ["Now","Analyst","Open to relevant opportunities",true]
+];
+
+const experience = {
+  tags:["Wind & Solar","SCADA Development","Real-time Monitoring Systems","Data validation", "Data Visualization ","UI testing","Deployment"],
+  bullets:[
+    "Built and maintained real-time monitoring dashboards for wind and solar energy systems, translating raw operational data into KPIs such as energy output, machine status and performance trends for non-technical stakeholders.",
+    "Performed data validation and accuracy checks against live field readings during onsite testing at wind turbine and solar plant sites, ensuring data integrity before it reached operators.",
+    "Redesigned legacy dashboards into modular, user-friendly layouts, improving how operators interpreted and acted on operational data.",
+    "Collaborated with cross-functional and remote teams to align dashboard outputs with backend data sources, gather requirements and report data discrepancies.",
+    "Supported documentation, UI testing and deployment activities across SCADA integration projects for iFox, Renfra Energy and Windparts India Pvt Ltd."
+  ]
+};
+
+const projects = [
+  {
+    color:"#00e5ff", index:"01", stat:"180K+", statLabel:"order items",
+    title:"Supply Chain Analytics",
+    badge:"Practice project · synthetic data",
+    summary:"An end-to-end supply chain analytics solution covering sales, profitability, customer performance and delivery risk.",
+    problem:"The project turns raw order-level data into a structured analytics system that can answer questions around sales, profit, margins, shipping, customers, products and geographic performance.",
+    contribution:"Designed the star-schema data warehouse and Python ETL pipeline, then developed SQL-based KPI and root-cause analysis and delivered the interactive Power BI dashboard.",
+    flow:["Python ETL","PostgreSQL","Star schema","SQL analysis","Power BI"],
+    findings:[
+      "Analyzed 180K+ order items across sales, profitability, customer and delivery dimensions.",
+      "Identified a 54.83% late-delivery risk pattern in the dataset.",
+      "Compared shipping-mode performance and examined category and geographic profitability trends."
+    ],
+    demonstrates:["Data modeling","ETL design","SQL analysis","Root-cause analysis","KPI reporting"],
+    stack:["SQL","Python","PostgreSQL","Power BI","DAX","GitHub"]
+  },
+  {
+    color:"#00e5ff", index:"02", stat:"350K+", statLabel:"transactions",
+    title:"Financial Transactions & Fraud Detection Analytics",
+    badge:"Practice project · synthetic data",
+    summary:"A rule-based fraud analytics workflow for transaction monitoring, customer risk profiling and branch-level exposure.",
+    problem:"The project explores how high-volume transaction data can be screened with transparent rules and then presented through monitoring views that help identify risk patterns.",
+    contribution:"Generated and analyzed the synthetic transaction dataset in PostgreSQL, applied rule-based logic to flag fraud alerts, and built Power BI dashboards with DAX measures for fraud rate and risk segmentation.",
+    flow:["Synthetic data","PostgreSQL","Rule-based SQL","22K+ alerts","Power BI"],
+    findings:[
+      "Generated and analyzed 350K+ synthetic financial transactions.",
+      "Applied rule-based logic to flag 22K+ fraud alerts.",
+      "Built views for fraud monitoring, customer risk profiling and branch-level exposure analysis."
+    ],
+    demonstrates:["SQL at scale","Risk logic","Monitoring dashboards","DAX segmentation"],
+    stack:["SQL","Python","PostgreSQL","Power BI","DAX","GitHub"]
+  },
+  {
+    color:"#f5ad22", index:"03", stat:"16", statLabel:"IPL seasons · 2008–2025",
+    title:"CSK IPL Analytics",
+    badge:"Featured personal project",
+    summary:"A multi-season sports analytics platform combining automated web scraping, Python ETL, star-schema modeling and an 8-page Power BI dashboard.",
+    problem:"IPL team performance data needs to be collected, standardized and modeled consistently before season-to-season comparisons become useful.",
+    contribution:"Collected and cleaned 16 seasons of IPL team performance data using Puppeteer and Cheerio, built the Python ETL pipeline, designed the Power BI star schema, wrote 50+ DAX measures and developed the interactive report.",
+    flow:["Puppeteer + Cheerio","Python ETL","Star schema","50+ DAX","8-page Power BI"],
+    findings:[
+      "Standardized and merged 16 seasons of CSK team performance data.",
+      "Tracked batting, bowling, fielding and team-level KPIs with 50+ DAX measures.",
+      "Used slicers, drill-throughs and tooltips to support performance exploration and narrative-driven analysis."
+    ],
+    pages:[
+      ["Batting","Team batting KPIs and scoring trends across seasons."],
+      ["Bowling","Bowling KPIs and season-on-season comparisons."],
+      ["Fielding","Fielding measures and team-level summaries."],
+      ["Venues","Performance by ground with season and venue filtering."]
+    ],
+    demonstrates:["Web scraping","Python ETL","Star-schema modeling","DAX","Data storytelling"],
+    stack:["Python","JavaScript","Puppeteer","Cheerio","Power BI","Excel","DAX","GitHub"]
+  },
+  {
+    color:"#00e5ff", index:"04", stat:"20K+", statLabel:"synthetic records",
+    title:"E-Commerce Sales & Customer Analytics",
+    badge:"Practice project · synthetic data",
+    summary:"A PostgreSQL warehouse and Power BI reporting workflow focused on revenue, AOV, retention, churn and customer behavior.",
+    problem:"The project asks which customers and products drive revenue and how effectively the business retains its customers.",
+    contribution:"Built the PostgreSQL warehouse with staging tables and dimensional modeling, generated transactional records with Python Faker, wrote 18+ analytical SQL queries and automated SQL-to-Excel exports before delivering the dashboard.",
+    flow:["Python Faker","PostgreSQL warehouse","18+ SQL queries","Excel export","4-page Power BI"],
+    findings:[
+      "Built the warehouse using 20,000+ synthetic transactional records.",
+      "Analyzed revenue trends, average order value, customer retention and churn.",
+      "Found repeat customers driving approximately 82% of revenue in the dataset.",
+      "Delivered Executive Summary, Customer Insights, Product Performance and Profitability pages."
+    ],
+    demonstrates:["Dimensional modeling","SQL querying","Automation","Customer analytics","Business reporting"],
+    stack:["PostgreSQL","SQL","Python","Power BI","Excel","GitHub"]
+  }
+];
+
+const skillGroups = {
+  "Data Analysis":[
+    ["SQL","SELECT, JOIN, GROUP BY, subqueries and aggregations; 18+ analytical queries in E-Commerce and KPI/root-cause analysis in Supply Chain."],
+    ["Python","Pandas, NumPy and Python-based ETL, data cleaning, synthetic-data generation and automated exports."],
+    ["Pandas","Data cleaning, standardization and multi-season IPL dataset preparation."],
+    ["NumPy","Python data-analysis foundation used alongside Pandas."],
+    ["Excel","PivotTables, VLOOKUP/XLOOKUP, formulas, reporting and SQL-to-Excel automation."],
+    ["EDA","Exploratory analysis, trend analysis and KPI investigation."]
+  ],
+  "BI & Visualization":[
+    ["Power BI","Interactive dashboards, KPI tracking, reporting, Power Query and data modeling."],
+    ["DAX","50+ measures in the CSK IPL project plus fraud-rate, risk-segmentation and supply-chain KPI logic."],
+    ["Power Query","Data preparation and transformation inside Power BI workflows."],
+    ["Data Modeling","Star-schema modeling for Supply Chain and CSK IPL; dimensional modeling for E-Commerce."]
+  ],
+  "Data Preparation":[
+    ["ETL","Designing scrape/generate → clean → transform → model → load workflows."],
+    ["Data Cleaning","Standardization, transformation and preparation of project datasets."],
+    ["Data Validation","Accuracy checks and integrity validation against live operational readings."],
+    ["Web Scraping","Automated IPL data collection using Puppeteer and Cheerio."],
+    ["Data Profiling","Inspecting data structure, quality and patterns before analysis."],
+    ["Data Integrity Checks","Checking consistency before dashboards and reports are trusted."]
+  ],
+  "Databases & Tools":[
+    ["PostgreSQL","Warehouse design, relational analysis and transaction analytics."],
+    ["MySQL","Relational database and query practice."],
+    ["Database Management","Working with structured relational data and analytical schemas."],
+    ["Git/GitHub","Version control and project hosting."],
+    ["VS Code","Primary development environment for SQL, Python and JavaScript work."],
+    ["MS Office","Documentation, reporting and supporting office workflows."]
+  ],
+  "Development":[
+    ["JavaScript","Web-scraping workflows and front-end dashboard experience."],
+    ["SCADA Dashboards","Professional experience building and maintaining real-time operational monitoring interfaces."],
+    ["UI Testing","Supported testing and validation of dashboard interfaces."],
+    ["Deployment Support","Supported deployment activities across SCADA integration projects."]
+  ]
+};
+
+const workflow = [
+  ["01","Understand","Clarify the business or operational question before choosing the tool."],
+  ["02","Validate","Check data, assumptions and dashboard values before trusting a result."],
+  ["03","Build","Create the model, ETL workflow, analysis, interface or dashboard."],
+  ["04","Communicate","Present findings clearly to technical and non-technical stakeholders."],
+  ["05","Improve","Use testing, feedback and real usage to refine the outcome."]
+];
+
+const education = [
+  ["Master of Science, Information Technology","Bishop Heber College","2024","76.66%"],
+  ["Bachelor of Science, Computer Science","Bishop Heber College","2022","76.30%"],
+  ["HSC","St. Little Flower Matric Hr. Sec School","2019","68.18%"],
+  ["SSLC","St. Little Flower Matric Hr. Sec School","2017","87.60%"]
+];
+
+const certifications = [
+  ["GenAI Powered Data Analytics Job Simulation","Forage / Tata Group","June 2026"],
+  ["Data Analytics Job Simulation","Forage / Deloitte Australia","June 2026"],
+  ["Risk Job Simulation","Forage / Goldman Sachs","June 2026"],
+  ["Claude 101 Certification","Anthropic","June 2026"],
+  ["Career Essentials in Data Analysis","Microsoft & LinkedIn","September 2025"],
+  ["Learning Data Analytics 2: Extending and Applying Core Knowledge","LinkedIn","September 2025"],
+  ["Learning Data Analytics: 1 Foundations","LinkedIn","August 2025"]
+];
+
+const achievements = [
+  ["Academic excellence","Academic Topper — 3rd and 4th Semester","Bishop Heber College · 2023–2024"],
+  ["Leadership","Certificate & Award of Appreciation for department contribution","Bishop Heber College"],
+  ["Competition","Runner-up, Code Race Event","Holy Cross College, Trichy"]
+];
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+const $ = selector => document.querySelector(selector);
+const el = (tag, html="", cls="") => {
+  const node = document.createElement(tag);
+  if(cls) node.className = cls;
+  node.innerHTML = html;
+  return node;
+};
+
+/* Navigation */
+const menu = $("#menu");
+const navLinks = $("#navLinks");
+menu.addEventListener("click",()=>{
+  const open = navLinks.classList.toggle("open");
+  menu.setAttribute("aria-expanded",String(open));
+});
+navLinks.addEventListener("click",e=>{
+  if(e.target.matches("a")){
+    navLinks.classList.remove("open");
+    menu.setAttribute("aria-expanded","false");
+  }
+});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape" && navLinks.classList.contains("open")){
+    navLinks.classList.remove("open");
+    menu.setAttribute("aria-expanded","false");
+    menu.focus();
+  }
+});
+
+/* Timeline */
+$("#timeline").innerHTML = journey.map(item => `
+  <div class="time-item ${item[3] ? "now" : ""}">
+    <div class="time-dot"></div>
+    <div class="time-year">${item[0]}</div>
+    <b>${item[1]}</b>
+    <span>${item[2]}</span>
+  </div>
+`).join("");
+
+/* Experience */
+$("#experienceTags").innerHTML = experience.tags.map(t=>`<span class="tag">${t}</span>`).join("");
+$("#experienceList").innerHTML = experience.bullets.map(b=>`<li>${b}</li>`).join("");
+
+/* Hero project-scale animation */
+const heroMetrics = [
+  {file:"supply_chain.sql",number:180000,suffix:"+",label:"order items analyzed",parts:["Python","PostgreSQL","Power BI"]},
+  {file:"fraud_rules.sql",number:350000,suffix:"+",label:"transactions analyzed",parts:["PostgreSQL","22K+ alerts","Power BI"]},
+  {file:"csk_ipl.pbix",number:16,suffix:"",label:"IPL seasons modeled",parts:["Scraping","Star schema","50+ DAX"],gold:true},
+  {file:"ecommerce.sql",number:20000,suffix:"+",label:"synthetic records",parts:["Faker","PostgreSQL","Excel"]}
+];
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const bars = $("#bars");
+for(let i=0;i<13;i++) bars.append(el("i"));
+let metricIndex = 0;
+const formatMetric = n => n >= 1000 ? Math.round(n/1000)+"K" : String(n);
+
+function showMetric(){
+  const m = heroMetrics[metricIndex % heroMetrics.length];
+  metricIndex++;
+  $("#termFile").textContent = m.file;
+  $("#termLabel").textContent = m.label;
+  $("#termNumber").classList.toggle("gold",!!m.gold);
+  bars.querySelectorAll("i").forEach((b,i)=>{
+    const h = 25 + ((i*17 + metricIndex*11) % 68);
+    b.style.setProperty("--h",h+"%");
+    b.style.setProperty("--bar",m.gold ? "var(--gold)" : "var(--cyan)");
+  });
+  $("#termFlow").innerHTML = m.parts.map((p,i)=>
+    `<span>${p}</span>${i<m.parts.length-1 ? "<b>→</b>" : ""}`
+  ).join("");
+
+  const number = $("#termNumber");
+  if(reducedMotion){
+    number.textContent = formatMetric(m.number)+m.suffix;
+    return;
+  }
+  const start = performance.now();
+  function animate(now){
+    const p = Math.min((now-start)/950,1);
+    const eased = 1-Math.pow(1-p,3);
+    number.textContent = formatMetric(Math.round(m.number*eased))+(p===1?m.suffix:"");
+    if(p<1) requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+}
+showMetric();
+if(!reducedMotion) setInterval(showMetric,4300);
+
+/* Project visual */
+const chartHeights = ["28%","52%","73%","42%","82%","58%","68%","91%","49%"];
+function projectVisual(p){
+  return `
+    <div class="project-visual" aria-hidden="true">
+      <div class="v-top"><span>case study / analytics view</span><b>${p.stat} ${p.statLabel}</b></div>
+      <div class="v-grid">
+        <div class="v-chart">${chartHeights.map(h=>`<i style="--h:${h}"></i>`).join("")}</div>
+        <div class="v-side">
+          <span><b>DATA</b> ready</span>
+          <span><b>MODEL</b> built</span>
+          <span><b>INSIGHT</b> found</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+/* Projects + dialog */
+const grid = $("#projectGrid");
+const dialog = $("#projectDialog");
+let lastOpener = null;
+
+projects.forEach((p,idx)=>{
+  const card = el("button","","project");
+  card.style.setProperty("--project-color",p.color);
+  card.innerHTML = `
+    <div class="project-head">
+      <span class="project-index">CASE STUDY ${p.index}</span>
+      <div style="text-align:right">
+        <div class="project-stat">${p.stat}</div>
+        <div class="project-stat-label">${p.statLabel}</div>
+      </div>
+    </div>
+    ${projectVisual(p)}
+    <div>${p.badge ? `<span class="project-badge">${p.badge}</span>` : ""}</div>
+    <h3>${p.title}</h3>
+    <p class="project-summary">${p.summary}</p>
+    <div class="project-footer">
+      <div class="project-tech">${p.stack.slice(0,4).map(s=>`<span>${s}</span>`).join("")}</div>
+      <span class="open-case">Open case study →</span>
+    </div>
+  `;
+
+  card.addEventListener("click",()=>{
+    lastOpener = card;
+    dialog.style.setProperty("--project-color",p.color);
+
+    dialog.innerHTML = `
+      <div class="dialog-head">
+        <div>
+          <h3 id="dialogTitle">${p.title}</h3>
+          <span class="project-badge">${p.badge}</span>
+        </div>
+        <button class="close" aria-label="Close case study">×</button>
+      </div>
+      <div class="dialog-body">
+        <div class="modal-section">
+          <h4>Project overview</h4>
+          <p>${p.summary}</p>
+        </div>
+
+        <div class="modal-section">
+          <h4>Problem / objective</h4>
+          <p>${p.problem}</p>
+        </div>
+
+        <div class="modal-section">
+          <h4>My contribution</h4>
+          <p>${p.contribution}</p>
+        </div>
+
+        <div class="modal-section">
+          <h4>Data workflow</h4>
+          <div class="flow">
+            ${p.flow.map((x,i)=>`<span>${x}</span>${i<p.flow.length-1?"<i>→</i>":""}`).join("")}
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h4>Key findings / outcomes</h4>
+          <ul class="findings">${p.findings.map(x=>`<li>${x}</li>`).join("")}</ul>
+        </div>
+
+        ${p.pages ? `
+          <div class="modal-section">
+            <h4>Dashboard pages</h4>
+            <div class="page-tabs">
+              ${p.pages.map((x,i)=>`<button type="button" aria-pressed="${i===0}">${x[0]}</button>`).join("")}
+            </div>
+            <p class="page-note" id="pageNote">${p.pages[0][1]}</p>
+          </div>
+        ` : ""}
+
+        <div class="modal-section">
+          <h4>What this demonstrates</h4>
+          <div class="modal-tags">${p.demonstrates.map(x=>`<span>${x}</span>`).join("")}</div>
+        </div>
+
+        <div class="modal-section">
+          <h4>Technology stack</h4>
+          <div class="modal-tags">${p.stack.map(x=>`<span>${x}</span>`).join("")}</div>
+        </div>
+      </div>
+    `;
+
+    dialog.querySelector(".close").addEventListener("click",()=>dialog.close());
+
+    if(p.pages){
+      const note = dialog.querySelector("#pageNote");
+      dialog.querySelectorAll(".page-tabs button").forEach((btn,i)=>{
+        btn.addEventListener("click",()=>{
+          dialog.querySelectorAll(".page-tabs button").forEach(x=>x.setAttribute("aria-pressed","false"));
+          btn.setAttribute("aria-pressed","true");
+          note.textContent = p.pages[i][1];
+        });
+      });
+    }
+    dialog.showModal();
+  });
+
+  grid.append(card);
+});
+
+dialog.addEventListener("click",e=>{
+  if(e.target === dialog) dialog.close();
+});
+dialog.addEventListener("close",()=>{
+  if(lastOpener) lastOpener.focus();
+});
+
+/* Workflow */
+$("#workflowSteps").innerHTML = workflow.map(x=>`
+  <div class="workflow-step">
+    <small>${x[0]}</small>
+    <b>${x[1]}</b>
+    <span>${x[2]}</span>
+  </div>
+`).join("");
+
+/* Skills */
+const skillContainer = $("#skillGroups");
+Object.entries(skillGroups).forEach(([group,skills])=>{
+  const section = el("div","","skill-group");
+  section.innerHTML = `<h3>${group}</h3><div class="skill-pills"></div>`;
+  const pills = section.querySelector(".skill-pills");
+  skills.forEach(([name,desc])=>{
+    const btn = el("button",name,"skill-pill");
+    btn.type = "button";
+    btn.setAttribute("aria-pressed","false");
+    btn.addEventListener("click",()=>{
+      document.querySelectorAll(".skill-pill").forEach(x=>x.setAttribute("aria-pressed","false"));
+      btn.setAttribute("aria-pressed","true");
+      $("#skillNote").innerHTML = `<b>${name}:</b> ${desc}`;
+    });
+    pills.append(btn);
+  });
+  skillContainer.append(section);
+});
+
+/* Education */
+$("#education").innerHTML = education.map(x=>`
+  <div class="cred-item">
+    <span class="cred-year">${x[2]}</span>
+    <b>${x[0]}</b>
+    <span>${x[1]} · ${x[3]}</span>
+  </div>
+`).join("");
+
+/* Certifications */
+$("#certifications").innerHTML = certifications.map(x=>`
+  <div class="cred-item">
+    <span class="cred-year">${x[2]}</span>
+    <b>${x[0]}</b>
+    <span>${x[1]}</span>
+  </div>
+`).join("");
+
+/* Achievements */
+$("#achievements").innerHTML = achievements.map(x=>`
+  <div class="achievement">
+    <small>${x[0]}</small>
+    <b>${x[1]}</b>
+    <span class="muted" style="font:11px var(--mono)">${x[2]}</span>
+  </div>
+`).join("");
+
+/* Footer year */
+$("#year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
